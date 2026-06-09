@@ -1,25 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM watsonx Orchestrate Chat Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            color: #0f62fe;
+        }
+
+        #root {
+            min-height: 100px;
+        }
+    </style>
+</head>
 <body>
-<div id="root"></div>
 
-<script>
-window.wxOConfiguration = {
-    orchestrationID: "3f406d2fd42b495ebc45f22705ee603c_5882ad71-d579-4f80-a974-60f228078327",
-    hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
-    rootElementID: "root",
-    deploymentPlatform: "ibmcloud",
-    crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/3f406d2fd42b495ebc45f22705ee603c:5882ad71-d579-4f80-a974-60f228078327::",
-    chatOptions: {
-        agentId: "b7c7cf06-e124-47db-b295-d2491177d45a"
-    }
-};
+    <h1>IBM watsonx Orchestrate Chat Demo</h1>
+    <p>
+        The chat widget should appear on this page once loaded.
+    </p>
 
-const script = document.createElement('script');
-script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
-script.onload = () => wxoLoader.init();
-document.head.appendChild(script);
-</script>
+    <div id="root"></div>
+
+    <script>
+        window.wxOConfiguration = {
+            orchestrationID: "3f406d2fd42b495ebc45f22705ee603c_5882ad71-d579-4f80-a974-60f228078327",
+            hostURL: "https://eu-gb.watson-orchestrate.cloud.ibm.com",
+            rootElementID: "root",
+            deploymentPlatform: "ibmcloud",
+            crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-gb:a/3f406d2fd42b495ebc45f22705ee603c:5882ad71-d579-4f80-a974-60f228078327::",
+            chatOptions: {
+                agentId: "b7c7cf06-e124-47db-b295-d2491177d45a",
+                agentEnvironmentId: "212ac98c-fa2c-4e73-8371-cb41ce703522"
+            }
+        };
+
+        setTimeout(function () {
+            const script = document.createElement('script');
+            script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+
+            script.addEventListener('load', function () {
+                wxoLoader.init();
+            });
+
+            document.head.appendChild(script);
+        }, 0);
+    </script>
 
 </body>
 </html>
